@@ -2,12 +2,7 @@ import styled from 'styled-components/native'
 
 export const GroupsContainer = styled.View`
   flex: 1;
-  background-color: #000;
-  align-items: center;
-  justify-content: center;
+  background-color: ${props => props.theme.COLORS.GRAY_600};
+  padding: 24px;
 `;
 
-export const GroupsTitle = styled.Text`
-  color: #fff;
-  font-size: 32px
-`

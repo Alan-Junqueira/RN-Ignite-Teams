@@ -1,12 +1,12 @@
 import { ThemeProvider } from 'styled-components';
 
 import { Groups } from '@screens/Groups';
-import { defaultTheme } from 'src/theme';
+import theme from './src/styles/theme/default';
 
 
 export default function App() {
   return (
-    <ThemeProvider theme={defaultTheme}>
+    <ThemeProvider theme={theme}>
       <Groups />
     </ThemeProvider>
   );
