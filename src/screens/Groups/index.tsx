@@ -14,6 +14,7 @@ export const Groups = () => {
   const navigation = useNavigation()
 
   const handleNewGroup = () => {
+    navigation.navigate('new')
   }
   return (
     <GroupsContainer>
