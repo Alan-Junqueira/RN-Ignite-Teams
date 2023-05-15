@@ -3,6 +3,7 @@ import { PlayersContainer, PlayersForm } from "./styled"
 import { Highlight } from "@components/Highlight"
 import { ButtonIcon } from "@components/ButtonIcon"
 import { Input } from "@components/Input"
+import { Filter } from "@components/Filter"
 
 export const Players = () => {
   return (
@@ -24,6 +25,10 @@ export const Players = () => {
 
         <ButtonIcon icon="add" />
       </PlayersForm>
+
+      <Filter 
+        title="Time A"
+      />
     </PlayersContainer>
   )
 }
