@@ -7,10 +7,11 @@ import { Highlight } from "@components/Highlight"
 import { ButtonIcon } from "@components/ButtonIcon"
 import { Input } from "@components/Input"
 import { Filter } from "@components/Filter"
+import { PlayerCard } from "@components/PlayerCard"
 
 export const Players = () => {
   const [team, setTeam] = useState('Time A');
-  const [players, setPlayers] = useState([]);
+  const [players, setPlayers] = useState(['Alan', "Alan2"]);
 
   return (
     <PlayersContainer>
@@ -39,6 +40,7 @@ export const Players = () => {
           keyExtractor={item => item}
           renderItem={({ item }) => (
             <Filter
+              key={item}
               title={item}
               isActive={item === team}
               onPress={() => setTeam(item)}
@@ -49,6 +51,18 @@ export const Players = () => {
 
         <PlayersNumberOfPlayers>{players.length}</PlayersNumberOfPlayers>
       </PlayersHeaderList>
+
+      <FlatList
+        data={players}
+        keyExtractor={item => item}
+        renderItem={({ item }) => (
+          <PlayerCard
+            name={item}
+            key={item}
+            onRemove={() => { }}
+          />
+        )}
+      />
 
     </PlayersContainer>
   )
