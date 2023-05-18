@@ -16,6 +16,7 @@ import { AppError } from "@utils/AppError"
 import { playerAddByGroup } from "@storage/players/player-add-by-group"
 import { playerGetByGroupAndTeam } from "@storage/players/player-get-by-group-and-team"
 import { TPlayerStorageDTO } from "@storage/players/PlayerStorageDTO"
+import { playerRemoveByGroup } from "@storage/players/player-remove-by-group"
 
 type RouteParams = {
   group: string
@@ -65,6 +66,16 @@ export const Players = () => {
     } catch (error) {
       console.log(error)
       Alert.alert('Pessoas', 'Não foi possível carregar as pessoas do time selecionado.')
+    }
+  }
+
+  const handleRemovePlayer = async (playerName: string) => {
+    try {
+      await playerRemoveByGroup(playerName, group)
+      fetchPlayersByTeam()
+    } catch (error) {
+      console.log(error)
+      Alert.alert('Remover pessoa', 'Não foi possível remover essa pessoa.')
     }
   }
 
@@ -123,7 +134,7 @@ export const Players = () => {
         renderItem={({ item }) => (
           <PlayerCard
             name={item.name}
-            onRemove={() => { }}
+            onRemove={() => handleRemovePlayer(item.name)}
           />
         )}
         ListEmptyComponent={() => (
